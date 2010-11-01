@@ -103,8 +103,7 @@ def link_file(linkable, destination)
 	mkdir_p File.dirname(destination), { :verbose => false }
 	
 	as_admin configatron.admin, admin_password do
-		command = [] << "cmd" << "/c" << "mklink" 
-		command << "/d" if File.directory?(linkable)
+		command = [] << "mklink"
 		command << destination << linkable
 	end
 end
